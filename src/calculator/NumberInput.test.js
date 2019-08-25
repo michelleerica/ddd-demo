@@ -23,9 +23,6 @@ describe('NumberInput', () => {
 
 
 
-
-
-
 // renders react component
 //Shallow
 //1 layer
