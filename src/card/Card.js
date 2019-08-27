@@ -1,5 +1,7 @@
 import React from 'react';
 
-export default ({ title }) => (
+const Card = ({ title }) => (
   <div className='title'>{title}</div>
 );
+
+export default Card;
