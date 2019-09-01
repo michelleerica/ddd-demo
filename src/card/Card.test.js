@@ -8,6 +8,12 @@ describe('Card', () => {
 
     const wrapper = shallow(<Card title={testTitle}/>);
 
-    expect(wrapper.find('.title').text()).toEqual(testTitle);
+    expect(wrapper.find('.card-title').text()).toEqual(testTitle);
   });
-})
+
+  it('displays the an image', () => {
+    const wrapper = shallow(<Card />);
+
+    expect(wrapper.find('img')).toHaveLength(1);
+  });
+});
