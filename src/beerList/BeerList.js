@@ -1,21 +1,61 @@
 import React, { PureComponent } from 'react';
 import CardCollection from '../cardCollection/CardCollection';
+import beerDefaultData from '../data/beer';
 
 class BeerList extends PureComponent {
   state = {
+    searchTerm: '',
     data: [],
   }
 
   componentDidMount() {
-    this.data = require('./beers');
+    this.setState({
+      ...this.state,
+      data: beerDefaultData,
+    });
+  }
+
+  search = (term) => {
+    if (term && term.length > 0) {
+      var regexExpression = new RegExp(term, 'ig');
+      const filtered = beerDefaultData.filter(beerItem => beerItem.title.match(regexExpression));
+      this.setState({
+      ...this.state,
+        data: filtered,
+      });
+    } else {
+      this.setState({
+        ...this.state,
+        data: beerDefaultData,
+      });
+    }
+  }
+
+
+  onInputChange = (value) => {
+    this.setState({
+      ...this.state,
+      searchTerm: value,
+    });
   }
 
   render() {
-    const { data } = this.state;
-    if (!data || data.length <= 0) {
-      return <div>Loading...</div>;
-    }
-    return <CardCollection data={data} />;
+    const { data, searchTerm } = this.state;
+    return (
+      <div>
+        <input type="text" value={searchTerm} onChange={e => this.onInputChange(e.target.value)}/>
+        <button
+          className="btn waves-effect waves-light"
+          onClick={() => this.search(searchTerm)}
+        >
+          SUBMIT
+        </button>
+        { (!data || data.length <= 0) ?
+          <div>Loading...</div> :
+          <CardCollection data={data} />
+        }
+      </div>
+    );
   }
 }
 
