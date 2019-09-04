@@ -10,7 +10,7 @@ const NumberInput = () => {
   }
 
   return (
-    <input type="text" pattern="^[0-9]*$" value={value} onChange={e => handleValueChange(e.target.value)}/>
+    <input type="text" id="searchBox" pattern="^[0-9]*$" value={value} onChange={e => handleValueChange(e.target.value)}/>
   );
 }
 

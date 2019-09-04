@@ -43,8 +43,9 @@ class BeerList extends PureComponent {
     const { data, searchTerm } = this.state;
     return (
       <div>
-        <input type="text" value={searchTerm} onChange={e => this.onInputChange(e.target.value)}/>
+        <input type="text" id="searchBox" value={searchTerm} onChange={e => this.onInputChange(e.target.value)}/>
         <button
+          id="button"
           className="btn waves-effect waves-light"
           onClick={() => this.search(searchTerm)}
         >
