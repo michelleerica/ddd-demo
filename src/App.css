@@ -4,8 +4,7 @@
 
 .App-header {
   min-height: 100vh;
-  display: flex;
-  flex-direction: row;
+
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -14,4 +13,23 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.collection{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card .card-image img {
+
+    display: block;
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    height: 400px;
 }

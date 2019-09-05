@@ -4,8 +4,8 @@ import Card from '../card/Card';
 const CardCollection = ({ data }) => {
   if (!data || data.length <= 0) return null;
   return (
-    <div className="collection">
-      {data.map(item => <Card {...item} key={item.title}/>)}
+    <div className="collection" >
+      {data.map(item => <Card {...item} key={item.title} className="col s2 card"/>)}
     </div>
   );
 };
