@@ -31,7 +31,6 @@ class BeerList extends PureComponent {
     }
   }
 
-
   onInputChange = (value) => {
     this.setState({
       ...this.state,
@@ -43,14 +42,15 @@ class BeerList extends PureComponent {
     const { data, searchTerm } = this.state;
     return (
       <div>
-        <input type="text" id="searchBox" value={searchTerm} onChange={e => this.onInputChange(e.target.value)}/>
-        <button
-          id="button"
-          className="btn waves-effect waves-light"
-          onClick={() => this.search(searchTerm)}
-        >
-          SUBMIT
-        </button>
+        <div className="row search">
+          <input type="text" value={searchTerm} onChange={e => this.onInputChange(e.target.value)} />
+          <button
+            id="button"
+            className="btn waves-effect waves-light"
+            onClick={() => this.search(searchTerm)}
+          >SUBMIT
+          </button>
+        </div>
         { (!data || data.length <= 0) ?
           <div>Loading...</div> :
           <CardCollection data={data} />

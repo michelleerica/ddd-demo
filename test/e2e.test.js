@@ -21,7 +21,7 @@ describe('Beer App works', () => {
 
       expect(count).toEqual(1)
 
-    });
+    }, 15000);
 
     test('Check show all on empty search', async () => {
       await clear(inputField(above('Submit')))
@@ -37,7 +37,7 @@ describe('Beer App works', () => {
       expect(count).toBeGreaterThan(1)
       expect(count).toBeLessThan(10)
       
-    });
+    }, 10000);
 
     test('Check common search term returns multiple items', async () => {
       await clear(inputField(above('Submit')))
@@ -48,7 +48,7 @@ describe('Beer App works', () => {
 
       expect(count).toBeGreaterThan(1)
       
-    });
+    }, 10000);
   });
 
   afterAll(async () => {

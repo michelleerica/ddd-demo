@@ -22,7 +22,6 @@
 }
 
 .card .card-image img {
-
     display: block;
     border-radius: 2px 2px 0 0;
     position: relative;
@@ -32,4 +31,10 @@
     bottom: 0;
     width: 250px;
     height: 400px;
+}
+
+.search{
+  display: flex;
+  width: 30%;
+  margin-top: 20px;
 }
