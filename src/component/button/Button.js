@@ -2,7 +2,7 @@ import React from 'react';
 
 const Button = ({ onClick, name }) => (
   <button
-    className="btn waves-effect waves-light"
+    className="btn"
     onClick={onClick}
   >
     {name}

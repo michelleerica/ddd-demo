@@ -3,12 +3,12 @@ import { shallow } from 'enzyme';
 import Card from './Card';
 
 describe('Card', () => {
-  it('displays the title', () => {
-    const testTitle = 'example title';
+  it('displays the name', () => {
+    const testName = 'example name';
 
-    const wrapper = shallow(<Card title={testTitle}/>);
+    const wrapper = shallow(<Card name={testName}/>);
 
-    expect(wrapper.find('.card-title').text()).toEqual(testTitle);
+    expect(wrapper.find('.card-name').text()).toEqual(testName);
   });
 
   it('displays the an image', () => {

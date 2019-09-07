@@ -8,22 +8,22 @@ describe('CardCollection', () => {
     expect(wrapper.isEmptyRender()).toBeTruthy();
   });
 
-  it('renders a cards with title from data', () => {
-    const testTitle = 'Test Title';
+  it('renders a cards with name from data', () => {
+    const testName = 'Test Name';
     const data = [{
-      title: testTitle,
+      name: testName,
     }];
     const wrapper = shallow(<CardCollection data={data}/>);
 
     expect(wrapper.find('Card')).toHaveLength(1);
-    expect(wrapper.find(`Card[title="${testTitle}"]`).exists()).toBeTruthy();
+    expect(wrapper.find(`Card[name="${testName}"]`).exists()).toBeTruthy();
   });
 
   it('renders a card for each item in data', () => {
     const data = [{
-      title: 'Test Title 1',
+      name: 'Test Name 1',
     }, {
-      title: 'Test Title 2',
+      name: 'Test Name 2',
     }];
     const wrapper = shallow(<CardCollection data={data}/>);
 
