@@ -13,8 +13,11 @@ function startExpressApp(port) {
 }
 
 startExpressApp(process.env.PORT || 8080)
-  .then(() => console.log(`BFF stub available at http://localhost:${process.env.PORT || 8080}`))
+  .then(() => {
+    console.log(`stub available at http://localhost:${process.env.PORT || 8080}`)
+  })
   .catch((err) => {
     console.error(err);
     process.exit(1);
   });
+

@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import CardCollection from '../cardCollection/CardCollection';
 import beerDefaultData from '../data/beer';
+import Input from '../input/Input';
+import Button from '../button/Button';
 
 class BeerList extends PureComponent {
   state = {
@@ -23,11 +25,6 @@ class BeerList extends PureComponent {
       ...this.state,
         data: filtered,
       });
-    } else {
-      this.setState({
-        ...this.state,
-        data: beerDefaultData,
-      });
     }
   }
 
@@ -43,13 +40,14 @@ class BeerList extends PureComponent {
     return (
       <div>
         <div className="row search">
-          <input type="text" value={searchTerm} onChange={e => this.onInputChange(e.target.value)} />
-          <button
-            id="button"
-            className="btn waves-effect waves-light"
+          <Input
+            value={searchTerm}
+            onChange={this.onInputChange}
+          />
+          <Button
             onClick={() => this.search(searchTerm)}
-          >SUBMIT
-          </button>
+            name="SUBMIT"
+          />
         </div>
         { (!data || data.length <= 0) ?
           <div>Loading...</div> :

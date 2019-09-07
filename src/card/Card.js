@@ -1,11 +1,12 @@
 import React from 'react';
+import { BASE_PATH } from '../config';
 
-const Card = ({ title, percentage, image }) => (
+const Card = ({ title, image }) => (
   <div className="row">
     <div className="col">
       <div className="card">
         <div className="card-image">
-            <img src={`https://res.cloudinary.com/michelleerica/image/upload/v1567213406/${image}.jpg`} />
+            <img src={`${BASE_PATH}/${image}.jpg`} alt={title} />
             <span className="card-title">{title}</span>
         </div>
       </div>
@@ -14,3 +15,4 @@ const Card = ({ title, percentage, image }) => (
 );
 
 export default Card;
+

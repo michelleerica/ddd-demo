@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import NumberInput from './calculator/NumberInput';
 import BeerList from './beerList/BeerList';
 
 function App() {
