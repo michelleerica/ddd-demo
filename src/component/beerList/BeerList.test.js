@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import BeerList from './BeerList';
-import beerData from '../data/beer';
+import beerData from '../../data/beer';
 
-jest.mock('../data/beer', () => [{
+jest.mock('../../data/beer', () => [{
   title: 'abcdef',
 }, {
   title: 'zyxwv',

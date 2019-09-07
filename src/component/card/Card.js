@@ -1,5 +1,5 @@
 import React from 'react';
-import { BASE_PATH } from '../config';
+import { BASE_PATH } from '../../config';
 
 const Card = ({ title, image }) => (
   <div className="row">

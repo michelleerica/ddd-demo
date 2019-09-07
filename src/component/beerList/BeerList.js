@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import CardCollection from '../cardCollection/CardCollection';
-import beerDefaultData from '../data/beer';
+import beerDefaultData from '../../data/beer';
 import Input from '../input/Input';
 import Button from '../button/Button';
 
