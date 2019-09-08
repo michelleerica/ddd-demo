@@ -1,17 +1,16 @@
-const { openBrowser, write, goto, inputField, into, textBox, above, click, button, image, clear } = require('taiko');
+const { openBrowser, write, goto, inputField, into, textBox, toLeftOf, click, button, image, clear } = require('taiko');
 
 describe('Beer App works', () => {
 
   beforeAll(async () => {
     await openBrowser({ headless: false });
     await goto('localhost:3000');
-
   });
 
   describe('Search for beers', () => {
 
     test('Search for "Taiko"', async () => {
-      await write("two birds", into(textBox(above("Submit"))))
+      await write("two birds", into(textBox(toLeftOf("Submit"))))
 
       await click(button())
 
@@ -26,7 +25,7 @@ describe('Beer App works', () => {
     test('Check show all on empty search', async () => {
       await clear(inputField(above('Submit')))
       
-      await write("dog", into(textBox(above("Submit"))))
+      await write("dog", into(textBox(toLeftOf("Submit"))))
 
       await click(button())
 
@@ -40,7 +39,7 @@ describe('Beer App works', () => {
     }, 10000);
 
     test('Check common search term returns multiple items', async () => {
-      await clear(inputField(above('Submit')))
+      await clear(inputField(toLeftOf('Submit')))
 
       await click(button({id: "button"}))
 
