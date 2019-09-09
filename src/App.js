@@ -8,14 +8,7 @@ import './App.css';
 class BeerList extends PureComponent {
   state = {
     searchTerm: '',
-    data: [],
-  }
-
-  componentDidMount() {
-    this.setState({
-      ...this.state,
-      data: beerDefaultData,
-    });
+    data: beerDefaultData,
   }
 
   search = (term) => {
@@ -50,10 +43,7 @@ class BeerList extends PureComponent {
             name="SUBMIT"
           />
         </div>
-        { (!data || data.length <= 0) ?
-          <div>Loading...</div> :
-          <CardCollection data={data} />
-        }
+        <CardCollection data={data} />
       </div>
     );
   }

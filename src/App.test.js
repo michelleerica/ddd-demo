@@ -10,17 +10,6 @@ jest.mock('./data/beer', () => [{
 }]);
 
 describe('App', () => {
-  it('displays loading when there is no data', () => {
-    const wrapper = shallow(<App />);
-
-    wrapper.setState((prevState) => ({
-      ...prevState,
-      data: [],
-    }));
-
-    expect(wrapper.text()).toContain('Loading...');
-  });
-
   it('displays CardCollection once it has data', () => {
     const wrapper = shallow(<App />);
 
