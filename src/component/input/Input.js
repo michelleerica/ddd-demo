@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 
-const Input = ({value, onChange}) => {
+const Input = ({value, onChangeCallback}) => {
   const [inputValue, setValue] = useState(value);
 
   const handleChange = (value) => {
     if (value.match(/^[a-zA-Z0-9 -]*$/)) {
       setValue(value);
-      onChange(value);
+      onChangeCallback(value);
     }
   }
 
@@ -21,7 +21,7 @@ const Input = ({value, onChange}) => {
 
 Input.defaultProps = ({
   value: '',
-  onChange: () => {},
+  onChangeCallback: () => {},
 })
 
 export default Input;

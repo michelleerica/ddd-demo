@@ -36,10 +36,10 @@ class BeerList extends PureComponent {
         <div className="row search">
           <Input
             value={searchTerm}
-            onChange={this.onInputChange}
+            onChangeCallback={this.onInputChange}
           />
           <Button
-            onClick={() => this.search(searchTerm)}
+            onClickCallback={() => this.search(searchTerm)}
             name="SUBMIT"
           />
         </div>

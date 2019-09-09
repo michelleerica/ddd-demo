@@ -16,11 +16,11 @@ describe('Input', () => {
       expect(wrapper.find('input').props().value).toEqual('abc123 -');
     });
 
-    it('calls onChange', () => {
-      const onChange = jest.fn();
-      const wrapper = shallow(<Input onChange={onChange}/>);
+    it('calls onChangeCallback', () => {
+      const onChangeCallback = jest.fn();
+      const wrapper = shallow(<Input onChangeCallback={onChangeCallback}/>);
       wrapper.find('input').simulate('change', {target: {value: 'test string'}});
-      expect(onChange).toBeCalledWith('test string');
+      expect(onChangeCallback).toBeCalledWith('test string');
     });
   });
 });

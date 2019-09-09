@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Button = ({ onClick, name }) => (
+const Button = ({ onClickCallback, name }) => (
   <button
     className="btn"
-    onClick={onClick}
+    onClick={onClickCallback}
   >
     {name}
   </button>
@@ -11,7 +11,7 @@ const Button = ({ onClick, name }) => (
 
 Button.defaultProps = ({
   name: 'Submit',
-  onClick: () => {},
+  onClickCallback: () => {},
 })
 
 export default Button;
