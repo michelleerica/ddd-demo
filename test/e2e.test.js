@@ -9,7 +9,7 @@ describe('Beer App works', () => {
 
   describe('Search for beers', () => {
 
-    test('Search for "Taiko"', async () => {
+    test('Search for a specific beer', async () => {
       await write("two birds", into(textBox(toLeftOf("Submit"))))
 
       await click(button())
@@ -20,14 +20,12 @@ describe('Beer App works', () => {
 
       expect(count).toEqual(1)
 
-    }, 15000);
+    }, 30000);
 
-    test('Check show all on empty search', async () => {
-      await clear(inputField(above('Submit')))
+    test('Check common search term returns multiple items', async () => {
+      await clear(inputField(toLeftOf('Submit')))
       
       await write("dog", into(textBox(toLeftOf("Submit"))))
-
-      await click(button())
 
       await image().exists()
 
@@ -36,18 +34,20 @@ describe('Beer App works', () => {
       expect(count).toBeGreaterThan(1)
       expect(count).toBeLessThan(10)
       
-    }, 10000);
+    }, 30000);
 
-    test('Check common search term returns multiple items', async () => {
+    test('Check show all on empty search', async () => {
       await clear(inputField(toLeftOf('Submit')))
 
-      await click(button({id: "button"}))
+      await write(" ", into(textBox(toLeftOf("Submit"))))
+
+      await click(button())
 
       var count = (await image().get()).length
 
-      expect(count).toBeGreaterThan(1)
+      expect(count).toBeGreaterThan(10)
       
-    }, 10000);
+    }, 30000);
   });
 
   afterAll(async () => {
