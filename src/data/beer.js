@@ -146,7 +146,7 @@ export default [{
 {
   date: "July 26 2019",
   name: "The Welder’s Dog Farmhouse Ginger Beer",
-  image: "The_Welder_s_Dog_Australian_Wheat_Ale_i8oigl"
+  image: "The_Welder_s_Dog_Farmhouse_Ginger_Beer_yuivur"
 },
 {
   date: "August 9 2019",
