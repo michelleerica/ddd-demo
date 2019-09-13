@@ -1,14 +1,23 @@
-const { openBrowser, write, goto, inputField, into, textBox, toLeftOf, click, button, image, clear } = require('taiko');
+const { openBrowser, write, goto, into, textBox, toLeftOf, click, button, image, clear } = require('taiko');
 
 describe('Beer App works', () => {
-
   beforeAll(async () => {
     await openBrowser({ headless: false });
     await goto('localhost:3000');
   });
 
-  describe('Search for beers', () => {
+  describe('See beers', () => { 
+    test('Beers should appear on screen', async() => {
+      await image().exists()
 
+      var count = (await image().get()).length
+
+      expect(count).toBeGreaterThan(1)
+    });
+  });
+
+  describe('Search for beers', () => {
+    
     test('Search for a specific beer', async () => {
       await write("two birds", into(textBox(toLeftOf("Submit"))))
 
@@ -23,9 +32,11 @@ describe('Beer App works', () => {
     }, 30000);
 
     test('Check common search term returns multiple items', async () => {
-      await clear(inputField(toLeftOf('Submit')))
+      await clear(textBox(toLeftOf('Submit')))
       
       await write("dog", into(textBox(toLeftOf("Submit"))))
+
+      await click(button())
 
       await image().exists()
 
@@ -37,7 +48,7 @@ describe('Beer App works', () => {
     }, 30000);
 
     test('Check show all on empty search', async () => {
-      await clear(inputField(toLeftOf('Submit')))
+      await clear(textBox(toLeftOf('Submit')))
 
       await write(" ", into(textBox(toLeftOf("Submit"))))
 
