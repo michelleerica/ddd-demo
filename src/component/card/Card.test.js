@@ -4,7 +4,8 @@ import Card from './Card';
 import { BASE_PATH } from '../../config';
 
 describe('Card', () => {
-  it('displays the an image', () => {
+  it('displays an image', () => {
+    
     const wrapper = shallow(<Card />);
 
     expect(wrapper.find('img')).toHaveLength(1);

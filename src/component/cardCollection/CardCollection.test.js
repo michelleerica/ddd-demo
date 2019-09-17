@@ -5,10 +5,11 @@ import CardCollection from './CardCollection';
 describe('CardCollection', () => {
   it('does not render without data', () => {
     const wrapper = shallow(<CardCollection />);
+
     expect(wrapper.isEmptyRender()).toBeTruthy();
   });
 
-  it('renders a cards with name from data', () => {
+  it('renders a card with name from data', () => {
     const testName = 'Test Name';
     const data = [{
       name: testName,

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import CardCollection from './component/cardCollection/CardCollection';
 import Input from './component/input/Input';
-import Button from './component/button/Button';
 import beerDefaultData from './data/beer';
 import './App.css';
 
@@ -31,10 +30,6 @@ const App = () => {
           value={searchTerm}
           onChangeCallback={onInputChange}
         />
-        {/* <Button
-          onClickCallback={search}
-          name="SUBMIT"
-        /> */}
       </div>
       <CardCollection data={beerData} />
     </div>
