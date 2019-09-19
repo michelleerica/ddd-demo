@@ -6,6 +6,7 @@ const Input = ({ onChangeCallback }) => {
   return (
     <input
       value={inputValue}
+      placeholder= "Search..."
       onChange={e => {
         onChangeCallback(e.target.value);
         setInputValue(e.target.value);

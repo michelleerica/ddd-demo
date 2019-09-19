@@ -1,4 +1,4 @@
-const { openBrowser, write, goto, into, textBox, toLeftOf, click, button, image, clear } = require('taiko');
+const { openBrowser, write, goto, into, textBox, image, clear } = require('taiko');
 
 describe('Beer App works', () => {
   beforeAll(async () => {
@@ -19,9 +19,8 @@ describe('Beer App works', () => {
   describe('Search for beers', () => {
     
     test('Search for a specific beer', async () => {
-      await write("two birds", into(textBox(toLeftOf("Submit"))))
 
-      await click(button())
+      await write("Two Birds ", into(textBox({ placeholder: "Search..." })))
 
       await image({id:"Two Birds Double Sunset"}).exists()
 
@@ -32,11 +31,9 @@ describe('Beer App works', () => {
     }, 30000);
 
     test('Check common search term returns multiple items', async () => {
-      await clear(textBox(toLeftOf('Submit')))
+      await clear(textBox({ placeholder: "Search..." }))
       
-      await write("dog", into(textBox(toLeftOf("Submit"))))
-
-      await click(button())
+      await write("Dog", into(textBox({ placeholder: "Search..." })))
 
       await image().exists()
 
@@ -48,11 +45,7 @@ describe('Beer App works', () => {
     }, 30000);
 
     test('Check show all on empty search', async () => {
-      await clear(textBox(toLeftOf('Submit')))
-
-      await write(" ", into(textBox(toLeftOf("Submit"))))
-
-      await click(button())
+      await clear(textBox({ placeholder: "Search..." }))
 
       var count = (await image().get()).length
 
