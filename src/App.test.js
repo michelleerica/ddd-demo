@@ -10,12 +10,9 @@ jest.mock('./data/beer', () => [{
 }]);
 
 describe('App', () => {
-  it('displays CardCollection once it has data', () => {
+  it('displays CardCollection', () => {
     const wrapper = shallow(<App />);
 
-    wrapper.setState({
-      data: [{ name: 'name' }],
-    });
     expect(wrapper.find('CardCollection')).toHaveLength(1);
   });
 
@@ -27,19 +24,21 @@ describe('App', () => {
     expect(wrapper.text()).toContain(beerData[1].name);
   });
 
-  it('only shows the data that has matching name to search term', () => {
-    const wrapper = shallow(<App />);
+  it('only shows beers with matching name', () => {
+    const wrapper = mount(<App />);
 
-    wrapper.find('Input').dive().find('input').simulate('change', {
-      target: {
-        value: 'bcd'
-      }
-    });
-    wrapper.find('Button').dive().find('button').simulate('click');
+    let cardElement = wrapper.find('Card');
+    expect(wrapper.find('Card')).toHaveLength(2);
 
-    expect(wrapper.find('CardCollection')).toHaveLength(1);
-    const cardCollectionWrapper = wrapper.find('CardCollection').dive();
-    expect(cardCollectionWrapper.find('Card')).toHaveLength(1);
-    expect(cardCollectionWrapper.find('Card').props().name).toEqual('abcdef');
+    wrapper.find('input')
+      .simulate('change', {
+        target: {
+          value: 'bcd'
+        }
+      });
+
+    cardElement = wrapper.find('Card');
+    expect(cardElement).toHaveLength(1);
+    expect(cardElement.html()).toContain('abcdef');
   });
 });
