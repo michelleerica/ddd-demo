@@ -3,14 +3,16 @@ import React, { useState } from 'react';
 const Input = ({ onChangeCallback }) => {
   const [inputValue, setInputValue] = useState('');
 
+  const handleChange = (value) => {
+    onChangeCallback(value);
+    setInputValue(value);
+  }
+
   return (
     <input
       value={inputValue}
       placeholder= "Search..."
-      onChange={e => {
-        onChangeCallback(e.target.value);
-        setInputValue(e.target.value);
-      }}
+      onChange={e => handleChange(e.target.value)}
     />
   );
 }

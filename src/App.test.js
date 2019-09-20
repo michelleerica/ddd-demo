@@ -1,12 +1,11 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import App from './App';
-import beerData from './data/beer';
 
 jest.mock('./data/beer', () => [{
-  name: 'abcdef',
+  name: 'stout',
 }, {
-  name: 'zyxwv',
+  name: 'pale ale',
 }]);
 
 describe('App', () => {
@@ -20,8 +19,9 @@ describe('App', () => {
     const wrapper = mount(<App />);
 
     expect(wrapper.find('CardCollection')).toHaveLength(1);
-    expect(wrapper.text()).toContain(beerData[0].name);
-    expect(wrapper.text()).toContain(beerData[1].name);
+
+    expect(wrapper.html()).toContain('stout');
+    expect(wrapper.html()).toContain('pale ale');
   });
 
   it('only shows beers with matching name', () => {
@@ -33,12 +33,12 @@ describe('App', () => {
     wrapper.find('input')
       .simulate('change', {
         target: {
-          value: 'bcd'
+          value: 'ale'
         }
       });
 
     cardElement = wrapper.find('Card');
     expect(cardElement).toHaveLength(1);
-    expect(cardElement.html()).toContain('abcdef');
+    expect(cardElement.html()).toContain('pale ale');
   });
 });
